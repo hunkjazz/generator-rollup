@@ -1,0 +1,25 @@
+@charset 'utf-8';
+
+// Abstracts like: variables, mixins, functions and others utilities.
+// @import './abstracts/';
+
+// Vendors like: Bootstrap, Normalize and JQuery-UI.
+// @import './vendors/';
+
+// Boilerplate code like: resets and typography.
+// @import './base/';
+
+// Focuses on the macro layout, such as things like: _header.scss, _grid.scss and _forms.scss.
+// @import './layout/';
+
+// Focuses on the micro layout, such as widgets like: _media.scss, _thumbnails.scss and _buttons.scss.
+// @import './components/';
+
+// Page specific styles, such as: _home.scss and _contact.scss.
+// @import './pages/';
+
+// Deals with style themes, such as: _admin.scss and _dark.scss.
+// @import './themes/';
+
+// Please, don't look through this file.
+// @import 'shame';
