@@ -1,12 +1,9 @@
-// Utilities
 const { src, dest } = require('../utilities/api');
 const { options } = require('../utilities/options');
 
-// Plugins
 const { cache } = require('../plugins/plugins.manifest');
 const { imagemin, pngquant } = require('../plugins/imagemin');
 
-// Main task
 function optimizeImg() {
   const imageminPlugins = [
     imagemin.gifsicle(options.imageminPlugins.gifsicle),

@@ -1,8 +1,6 @@
-// Utilities
 const { src, dest } = require('../utilities/api');
 const { options } = require('../utilities/options');
 
-// Plugins
 const { 
   useref,
   gulpIf,
@@ -13,7 +11,6 @@ const {
 
 const { postcss } = require('../plugins/postcss');
 
-// Main task
 function optimizeCode() {
 
   return src('build/*.html')

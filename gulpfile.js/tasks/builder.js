@@ -1,4 +1,3 @@
-// Utilities
 const { 
   src,
   dest,
@@ -8,12 +7,10 @@ const {
 
 const { path } = require('../utilities/paths');
 
-// Dependency tasks
-const { cleanBuild } = require('./folderCleaner');
 const { generateCode } = require('./codeGenerator');
+const { cleanBuild } = require('./folderCleaner');
 const { resizeImages } = require('./imageResizer');
 
-// Tasks
 function copyStaticFiles() {
 
   return src(path.staticFiles)

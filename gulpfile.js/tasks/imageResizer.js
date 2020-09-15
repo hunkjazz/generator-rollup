@@ -1,7 +1,5 @@
-// Utilities
 const { src, dest } = require('../utilities/api');
 
-// Plugins
 const { responsive } = require('../plugins/plugins.manifest');
 
 function resizeImages() {

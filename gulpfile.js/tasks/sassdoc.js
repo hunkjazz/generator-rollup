@@ -1,8 +1,6 @@
-// Utilities
 const { src } = require('../utilities/api');
 const { options } = require('../utilities/options');
 
-// Plugins
 const { sassdoc } = require('../modules/modules.manifest');
 
 function buildSassDoc() {

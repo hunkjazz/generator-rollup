@@ -1,15 +1,12 @@
-// Utilities
 const { series, watch } = require('../utilities/api');
 const { options } = require('../utilities/options');
 
-// Modules
 const { browserSync } = require('../modules/browserSync');
 
-// Dependency tasks
+const { path } = require('../utilities/paths');
 const { resizeImages } = require('./imageResizer');
 const { compileSass } = require('./sassCompiler');
 const { copyStaticFiles } = require('./builder');
-const { path } = require('../utilities/paths');
 const { compileTS } = require('./tsCompiler');
 const { bundleJS } = require('./jsBundler');
 

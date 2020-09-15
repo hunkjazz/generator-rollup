@@ -1,11 +1,10 @@
-// Utilities
 const { src, dest } = require('../utilities/api');
 
-// Plugins
-const { ts, sourcemaps } = require('../plugins/plugins.manifest');
+const {
+  ts,
+  sourcemaps
+} = require('../plugins/plugins.manifest');
 
-// Main task
-// Typescript project configuration file
 const tsProject = ts.createProject('tsconfig.json');
 
 function compileTS() {
