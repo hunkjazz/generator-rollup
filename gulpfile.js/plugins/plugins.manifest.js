@@ -12,7 +12,7 @@ const sass = require('gulp-sass');
 const gulpIf = require('gulp-if');
 
 const { postcss, autoprefixer, cssnano } = require('./postcss');
-const { imagemin, imageminPngquant } = require('./imagemin');
+const { imagemin, pngquant } = require('./imagemin');
 
 module.exports = {
   // Official
@@ -34,5 +34,5 @@ module.exports = {
     autoprefixer,
     cssnano,
     // ImageMin
-    imageminPngquant
+    pngquant
 }

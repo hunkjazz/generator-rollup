@@ -1,4 +1,4 @@
-const pathTo = {
+const path = {
   staticFiles: [
     'src/index.html',
     'src/favicon.png',
@@ -6,5 +6,5 @@ const pathTo = {
 }
 
 module.exports = {
-  pathTo
+  path
 }

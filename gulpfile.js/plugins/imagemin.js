@@ -1,7 +1,7 @@
 const imagemin = require('gulp-imagemin');
-const imageminPngquant = require('imagemin-pngquant');
+const pngquant = require('imagemin-pngquant');
 
 module.exports = {
   imagemin, 
-  imageminPngquant,
+  pngquant,
 }

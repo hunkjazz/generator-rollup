@@ -9,7 +9,7 @@ const { browserSync } = require('../modules/browserSync');
 const { resizeImages } = require('./imageResizer');
 const { compileSass } = require('./sassCompiler');
 const { copyStaticFiles } = require('./builder');
-const { pathTo } = require('../utilities/paths');
+const { path } = require('../utilities/paths');
 const { compileTS } = require('./tsCompiler');
 const { bundleJS } = require('./jsBundler');
 
@@ -18,7 +18,7 @@ function watchTasks() {
   const watchTS = watch('src/ts/**/*.ts');
   const watchSass = watch('src/scss/**/*.scss');
   const watchImages = watch('src/assets/img/**/*');
-  const watchStatic = watch(pathTo.staticFiles);
+  const watchStatic = watch(path.staticFiles);
 
   browserSync.init(options.browserSync.init);
 

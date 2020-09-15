@@ -1,5 +1,5 @@
 // Plugins
-const { imageminPngquant } = require('../plugins/imagemin');
+const { pngquant } = require('../plugins/imagemin');
 const { autoprefixer, cssnano } = require('../plugins/postcss');
 
 const options = {
@@ -24,7 +24,7 @@ const options = {
   },
   imagemin: {
     verbose: true,
-    use: [imageminPngquant()]
+    use: [pngquant()]
   },
   imageminPlugins: {
     gifsicle: {
@@ -58,7 +58,7 @@ const options = {
       }
     }
   },
-  sassDoc: {
+  sassdoc: {
     dest: 'docs/sassdoc'
   }
 }

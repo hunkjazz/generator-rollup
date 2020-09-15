@@ -4,7 +4,7 @@ const { options } = require('../utilities/options');
 
 // Plugins
 const { cache } = require('../plugins/plugins.manifest');
-const { imagemin, imageminPngquant } = require('../plugins/imagemin');
+const { imagemin, pngquant } = require('../plugins/imagemin');
 
 // Main task
 function optimizeImg() {
@@ -13,7 +13,7 @@ function optimizeImg() {
     imagemin.jpegtran(options.imageminPlugins.jpegtran),
     imagemin.optipng(options.imageminPlugins.optipng),
     imagemin.svgo(options.imageminPlugins.svgo),
-    imageminPngquant()
+    pngquant()
   ]
 
   return src('build/**/*.{jpg,png,gif}')
