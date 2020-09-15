@@ -1,5 +1,11 @@
 // Utilities
-const { src, dest, series, parallel } = require('../utilities/api');
+const { 
+  src,
+  dest,
+  series,
+  parallel
+} = require('../utilities/api');
+
 const { path } = require('../utilities/paths');
 
 // Dependency tasks

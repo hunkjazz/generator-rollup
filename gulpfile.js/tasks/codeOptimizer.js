@@ -3,7 +3,14 @@ const { src, dest } = require('../utilities/api');
 const { options } = require('../utilities/options');
 
 // Plugins
-const { useref, gulpIf, uglify, htmlmin, purgecss } = require('../plugins/plugins.manifest');
+const { 
+  useref,
+  gulpIf,
+  uglify,
+  htmlmin,
+  purgecss
+} = require('../plugins/plugins.manifest');
+
 const { postcss } = require('../plugins/postcss');
 
 // Main task

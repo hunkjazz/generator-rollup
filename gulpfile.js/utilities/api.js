@@ -1,7 +1,13 @@
-const { src, dest, series, parallel, watch } = require('gulp');
+const {
+  src,
+  dest,
+  series,
+  parallel,
+  watch
+} = require('gulp');
 
 module.exports = {
-  src, 
+  src,
   dest,
   series,
   parallel,
