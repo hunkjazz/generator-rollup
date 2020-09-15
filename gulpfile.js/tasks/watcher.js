@@ -10,8 +10,8 @@ const { copyStaticFiles } = require('./builder');
 const { compileTS } = require('./tsCompiler');
 const { bundleJS } = require('./jsBundler');
 
-// Main task
 function watchTasks() {
+
   const watchTS = watch('src/ts/**/*.ts');
   const watchSass = watch('src/scss/**/*.scss');
   const watchImages = watch('src/assets/img/**/*');
@@ -20,11 +20,8 @@ function watchTasks() {
   browserSync.init(options.browserSync.init);
 
   watchSass.on('all', compileSass);
-  
   watchTS.on('all', series(compileTS, bundleJS, browserSync.reload));
-
   watchImages.on('all', series(resizeImages, browserSync.reload));
-  
   watchStatic.on('all', series(copyStaticFiles, browserSync.reload));
 }
 

@@ -3,8 +3,10 @@ const { src } = require('../utilities/api');
 const { ghPages } = require('../plugins/plugins.manifest');
 
 function deployFiles() {
-  return src('./dist/**/*')
-          .pipe(ghPages());
+
+  const glob = './dist/**/*';
+  
+  return src(glob).pipe( ghPages() );
 }
 
 module.exports = {

@@ -3,7 +3,10 @@ const { src, dest } = require('../utilities/api');
 const { responsive } = require('../plugins/plugins.manifest');
 
 function resizeImages() {
-  return src('src/assets/img/**/*.{png,jpg}')
+
+  const glob = 'src/assets/img/**/*.{png,jpg}';
+  
+  return src(glob)
           .pipe(responsive({
             // 'file-infix-*.*': [
             //   {
@@ -12,7 +15,7 @@ function resizeImages() {
             //   }
             // ]
           }))
-          .pipe(dest('./build/assets/img'));
+          .pipe( dest('./build/assets/img') );
 }
 
 module.exports = {

@@ -13,13 +13,15 @@ const { postcss } = require('../plugins/postcss');
 
 function optimizeCode() {
 
-  return src('build/*.html')
-          .pipe(useref())
-          .pipe(gulpIf('*.js', uglify()))
-          .pipe(gulpIf('*.css', purgecss(options.purgecss)))
-          .pipe(gulpIf('*.css', postcss(options.postcssPlugins)))
-          .pipe(gulpIf('*.html', htmlmin(options.htmlmin)))
-          .pipe(dest('dist'));
+  const glob = 'build/*.html';
+
+  return src(glob)
+          .pipe( useref() )
+          .pipe( gulpIf('*.js', uglify()) )
+          .pipe( gulpIf('*.css', purgecss(options.purgecss)) )
+          .pipe( gulpIf('*.css', postcss(options.postcssPlugins)) )
+          .pipe( gulpIf('*.html', htmlmin(options.htmlmin)) )
+          .pipe( dest('dist') );
 }
 
 module.exports = {

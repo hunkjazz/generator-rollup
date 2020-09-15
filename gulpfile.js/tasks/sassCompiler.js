@@ -10,7 +10,10 @@ const {
 sass.compiler = require('node-sass');
 
 function compileSass() {
-  const sassResult = src('./src/scss/**/*.scss')
+
+  const glob = './src/scss/**/*.scss';
+  
+  const sassResult = src(glob)
                       .pipe(sourcemaps.init())
                       .pipe(sass().on('error', sass.logError))
                       .pipe(sourcemaps.write('./'));

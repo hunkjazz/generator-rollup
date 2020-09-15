@@ -5,7 +5,9 @@ const { sassdoc } = require('../modules/modules.manifest');
 
 function buildSassDoc() {
 
-  return  src('./src/scss/**/*.scss')
+  const glob = './src/scss/**/*.scss';
+
+  return  src(glob)
             .pipe(sassdoc(options.sassdoc));
 }
 

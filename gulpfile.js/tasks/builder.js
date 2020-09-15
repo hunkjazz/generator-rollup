@@ -13,8 +13,9 @@ const { resizeImages } = require('./imageResizer');
 
 function copyStaticFiles() {
 
-  return src(path.staticFiles)
-          .pipe(dest('build/'));
+  const glob = path.staticFiles;
+
+  return src(glob).pipe( dest('build/') );
 }
 
 const buildFiles = series(
