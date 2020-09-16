@@ -10,7 +10,8 @@ const del = require("del");
 const paths = require("../utilities/paths");
 
 const { runOptmizer } = require("./optmizer");
-const { generateCode } = require("./codeGenerator");
+const sass = require("./sass");
+const javascript = require("./javascript");
 const images = require("./images");
 
 function _clean(target = "build") {
@@ -30,9 +31,10 @@ function release() {
 function build() {
 
   const build = parallel(
-    generateCode,
-    copy(),
-    images.resize
+    series(javascript.compile, javascript.bundle),
+    sass.compile, 
+    images.resize,
+    copy()
   );
 
   return series(_clean(), build);
