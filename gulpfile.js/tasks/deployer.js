@@ -4,7 +4,7 @@ const ghPages = require("gulp-gh-pages");
 
 function deploy() {
 
-  const glob = "./dist/**/*";
+  const glob = `${paths.env.prod}/**/*`;
   
   return src(glob).pipe( ghPages() );
 }

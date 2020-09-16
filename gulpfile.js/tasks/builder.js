@@ -14,7 +14,7 @@ const javascript = require("./javascript");
 const images = require("./images");
 const optimize = require("./optimizer");
 
-function _clean(target = "build") {
+function _clean(target = paths.env.dev) {
 
   function task() { return del([target]) }
 
@@ -25,7 +25,7 @@ function _clean(target = "build") {
 
 function release() {
 
-  return series(build(), _clean("dist"), optimize());
+  return series(build(), _clean(`${paths.env.prod}`), optimize());
 }
 
 function build() {
@@ -42,7 +42,7 @@ function build() {
 
 function copy(label = "static", glob = paths.static) {
 
-  function task() { return src(glob).pipe(dest("build")) }
+  function task() { return src(glob).pipe(dest(paths.env.dev)) }
 
   task.displayName = `copy:${label}`;
   

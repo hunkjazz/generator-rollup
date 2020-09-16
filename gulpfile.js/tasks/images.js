@@ -6,6 +6,7 @@ const responsive = require("gulp-responsive");
 const pngquant = require("imagemin-pngquant");
 
 const options = require("../utilities/options");
+const paths = require("../utilities/paths");
 
 function resize() {
 
@@ -20,12 +21,12 @@ function resize() {
             //   }
             // ]
           }))
-          .pipe( dest("./build/assets/img") );
+          .pipe( dest(`${paths.env.dev}/assets/img`) );
 }
 
 function optimize() {
   
-  const glob = "build/**/*.{jpg,png,gif}";
+  const glob = `${paths.env.dev}/**/*.{jpg,png,gif}`;
 
   const imageminPlugins = [
     imagemin.gifsicle(options.imageminPlugins.gifsicle),
@@ -37,7 +38,7 @@ function optimize() {
 
   return src(glob)
           .pipe(cache(imagemin(imageminPlugins, options.imagemin)))
-          .pipe(dest("dist/"));
+          .pipe(dest(`${paths.env.prod}`));
 }
 
 resize.displayName = "resize:images";

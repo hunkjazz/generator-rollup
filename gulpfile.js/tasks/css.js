@@ -8,6 +8,7 @@ const nodesass = require("node-sass");
 const sassdoc = require("sassdoc");
 
 const options = require("../utilities/options");
+const paths = require("../utilities/paths");
 
 function compile() {
   
@@ -21,7 +22,7 @@ function compile() {
                     .pipe(sourcemaps.write("./"));
 
   return compiled
-          .pipe(dest("./build/css"))
+          .pipe(dest(`${paths.env.dev}/css`))
           .pipe(browserSync.stream());
 }
 

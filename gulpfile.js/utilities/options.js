@@ -1,7 +1,8 @@
 const pngquant = require("imagemin-pngquant");
-
 const autoprefixer = require("autoprefixer");
 const cssnano = require("cssnano");
+
+const paths = require("./paths");
 
 let htmlmin,
     purgecss,
@@ -26,10 +27,10 @@ htmlmin = {
 
 purgecss = {
   content: [
-    "./build/**/*.html", 
-    "./build/js/**/*.js"
+    `${paths.env.dev}/**/*.html`,
+    `${paths.env.dev}/js/**/*.js`
   ],
-  css: ["build/css/main.css"]
+  css: [`${paths.env.dev}/css/main.css`]
 };
 
 imagemin = {
@@ -63,7 +64,7 @@ postcssPlugins = [
 browsersync = {
   init: {
     server: {
-      baseDir: "./build",
+      baseDir: `${paths.env.dev}`,
       index: "index.html",
       routes: {
           "/node_modules": "node_modules"

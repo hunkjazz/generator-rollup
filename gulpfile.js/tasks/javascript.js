@@ -5,6 +5,8 @@ const typescript = require("gulp-typescript");
 
 const { rollup } = require("rollup");
 
+const paths = require("../utilities/paths");
+
 function compile() {
 
   compile.displayName = "compile:javascript"
@@ -24,7 +26,7 @@ async function bundle() {
   const build = await rollup({ input: "./src/js/main.js" });
 
   return build.write({
-          file: "./build/js/all.js",
+          file: `${paths.env.dev}/js/all.js`,
           format: "umd",
           name: "all",
           sourcemap: true

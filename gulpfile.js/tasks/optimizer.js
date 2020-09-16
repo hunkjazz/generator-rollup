@@ -13,10 +13,11 @@ const gulpIf = require("gulp-if");
 
 const images = require("./images");
 const options = require("../utilities/options");
+const paths = require("../utilities/paths");
 
 function code() {
   
-  let glob = "build/*.html";
+  let glob = `${paths.env.dev}/*.html`;
 
   return src(glob)
           .pipe( useref() )
@@ -24,12 +25,14 @@ function code() {
           .pipe( gulpIf("*.css", purgecss(options.purgecss)) )
           .pipe( gulpIf("*.css", postcss(options.postcssPlugins)) )
           .pipe( gulpIf("*.html", htmlmin(options.htmlmin)) )
-          .pipe( dest("dist") );
+          .pipe( dest(`${paths.env.prod}`) );
 }
 
 function optimize() {
 
   return parallel(images.optimize, code)
 }
+
+code.displayName = "optimize:code";
 
 module.exports = optimize;

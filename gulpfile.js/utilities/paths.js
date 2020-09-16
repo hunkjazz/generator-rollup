@@ -3,6 +3,12 @@ const static = [
   "src/favicon.png"
 ];
 
+const env = {
+  dev: "build",
+  prod: "dist"
+}
+
 module.exports = {
-  static
+  static,
+  env
 }
