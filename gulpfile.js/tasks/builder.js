@@ -31,11 +31,11 @@ function release() {
 function build() {
 
   const build = parallel(
-    series(javascript.compile, javascript.bundle),
-    css.compile, 
-    images.resize,
-    copy()
-  );
+                  series(javascript.compile, javascript.bundle),
+                  css.compile, 
+                  images.resize,
+                  copy()
+                );
 
   return series(_clean(), build);
 }

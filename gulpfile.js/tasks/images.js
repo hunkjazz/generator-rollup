@@ -40,6 +40,9 @@ function optimize() {
           .pipe(dest("dist/"));
 }
 
+resize.displayName = "resize:images";
+optimize.displayName = "optimize:images";
+
 module.exports = {
   resize,
   optimize

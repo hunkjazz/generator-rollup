@@ -7,6 +7,8 @@ const { rollup } = require("rollup");
 
 function compile() {
 
+  compile.displayName = "compile:javascript"
+
   const project = typescript.createProject("tsconfig.json");
 
   const compiled = src("./src/ts/**/*.ts")
@@ -28,6 +30,9 @@ async function bundle() {
           sourcemap: true
         });
 }
+
+compile.displayName = "compile:javascript";
+bundle.displayName = "bundle:javascript";
 
 module.exports = {
   compile,

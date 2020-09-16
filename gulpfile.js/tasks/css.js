@@ -32,6 +32,9 @@ function docs() {
   return  src(glob).pipe(sassdoc(options.sassdoc));
 }
 
+compile.displayName = "compile:css";
+docs.displayName = "docs:sass";
+
 module.exports = {
   compile,
   docs

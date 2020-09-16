@@ -58,6 +58,12 @@ function all(serve = true) {
   if(serve) browsersync.init(options.browsersync.init);
 }
 
+typescript.displayName = "watch:typescript";
+sass.displayName = "watch:sass";
+image.displayName = "watch:image";
+static.displayName = "watch:static";
+all.displayName = "watch:all";
+
 module.exports = {
   typescript,
   sass,
