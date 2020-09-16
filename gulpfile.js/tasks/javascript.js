@@ -7,6 +7,10 @@ const { rollup } = require("rollup");
 
 const paths = require("../utilities/paths");
 
+/**
+ * Compiles JS.
+ * @returns NodeJS.ReadWriteStream
+ */
 function compile() {
 
   compile.displayName = "compile:javascript"
@@ -21,6 +25,10 @@ function compile() {
   return compiled.pipe(dest("./src/js/"));
 }
 
+/**
+ * Bundles JS, using rollup.
+ * @returns Promise<RollupOutput>
+ */
 async function bundle() {
 
   const build = await rollup({ input: "./src/js/main.js" });
