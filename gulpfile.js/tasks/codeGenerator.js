@@ -4,10 +4,10 @@ const {
 } = require("gulp");
 
 const { bundleJS } = require("./jsBundler");
-const { compileSass } = require("./sassCompiler");
+const sass = require("./sass");
 const { compileTS } = require("./tsCompiler");
 
-const generateCode = parallel(compileSass, series(compileTS, bundleJS));
+const generateCode = parallel(sass.compile, series(compileTS, bundleJS));
 
 module.exports = {
   generateCode

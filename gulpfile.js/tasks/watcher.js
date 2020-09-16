@@ -1,11 +1,12 @@
 const { series, watch } = require("gulp");
+
 const options = require("../utilities/options");
+const paths = require("../utilities/paths");
 
 const browserSync = require("browser-sync").create();
 
-const paths = require("../utilities/paths");
 const images = require("./images");
-const { compileSass } = require("./sassCompiler");
+const sass = require("./sass");
 const { copy } = require("./builder");
 const { compileTS } = require("./tsCompiler");
 const { bundleJS } = require("./jsBundler");
@@ -19,7 +20,7 @@ function watchTasks() {
 
   browserSync.init(options.browserSync.init);
 
-  watchSass.on("all", compileSass);
+  watchSass.on("all", sass.compile);
   watchTS.on("all", series(compileTS, bundleJS, browserSync.reload));
   watchImages.on("all", series(images.resize, browserSync.reload));
   watchStatic.on("all", series(copy(), browserSync.reload));
