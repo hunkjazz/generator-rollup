@@ -1,9 +1,9 @@
-const { 
+const {
   src,
   dest,
   series,
   parallel
-} = require('../utilities/api');
+} = require('gulp');
 
 const paths = require('../utilities/paths');
 

@@ -1,4 +1,4 @@
-const { parallel } = require('../utilities/api');
+const { parallel } = require('gulp');
 
 const { optimizeCode } = require('./codeOptimizer');
 const { optimizeImg } = require('./imgOptmizer');

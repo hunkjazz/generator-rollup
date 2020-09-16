@@ -1,4 +1,4 @@
-const { series, watch } = require('../utilities/api');
+const { series, watch } = require('gulp');
 const options = require('../utilities/options');
 
 const { browserSync } = require('../modules/browserSync');

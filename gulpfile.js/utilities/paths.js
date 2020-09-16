@@ -1,6 +1,4 @@
-const static;
-
-static = [
+const static = [
   'src/index.html',
   'src/favicon.png'
 ];

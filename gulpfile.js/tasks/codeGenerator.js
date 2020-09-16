@@ -1,4 +1,7 @@
-const { parallel, series } = require('../utilities/api');
+const {
+  series,
+  parallel
+} = require('gulp');
 
 const { bundleJS } = require('./jsBundler');
 const { compileSass } = require('./sassCompiler');

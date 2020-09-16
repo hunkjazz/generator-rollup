@@ -1,4 +1,4 @@
-const { series } = require('./utilities/api');
+const { series } = require('gulp');
 
 const { runOptmizer } = require('./tasks/optmizer');
 const { watchTasks } = require('./tasks/watcher');

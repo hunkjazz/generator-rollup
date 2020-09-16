@@ -1,4 +1,4 @@
-const { src, dest } = require('../utilities/api');
+const { src, dest } = require('gulp');
 
 const { responsive } = require('../plugins/plugins.manifest');
 
