@@ -9,4 +9,4 @@ exports.build = build();
 exports.release = release();
 exports.serve = series(build(), watch.all);
 exports.deploy = series(release(), deploy);
-exports.sassdoc = series(css.docs);
+exports.sassdoc = series(css.sassdocs);

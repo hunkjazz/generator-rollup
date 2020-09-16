@@ -25,7 +25,7 @@ function compile() {
           .pipe(browserSync.stream());
 }
 
-function docs() {
+function sassdocs() {
 
   const glob = "./src/scss/**/*.scss";
 
@@ -33,9 +33,9 @@ function docs() {
 }
 
 compile.displayName = "compile:css";
-docs.displayName = "docs:sass";
+sassdocs.displayName = "docs:sass";
 
 module.exports = {
   compile,
-  docs
+  sassdocs
 };
