@@ -15,6 +15,10 @@ const images = require("./images");
 const options = require("../utilities/options");
 const paths = require("../utilities/paths");
 
+/**
+ * Minify everything code-related.
+ * @returns NodeJS.ReadWriteStream
+ */
 function code() {
   
   let glob = `${paths.env.dev}/*.html`;
@@ -28,6 +32,10 @@ function code() {
           .pipe( dest(`${paths.env.prod}`) );
 }
 
+/**
+ * Optimize everything.
+ * @returns
+ */
 function optimize() {
 
   return parallel(images.optimize, code)
