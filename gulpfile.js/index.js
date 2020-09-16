@@ -1,12 +1,12 @@
 const { series } = require("gulp");
 
-const { watchTasks } = require("./tasks/watcher");
+const watch = require("./tasks/watcher");
+const css = require("./tasks/css");
 const { deploy } = require("./tasks/deployer");
 const { build, release } = require("./tasks/builder");
-const sass = require("./tasks/sass");
 
 exports.build = build();
 exports.release = release();
-exports.serve = series(build(), watchTasks);
-exports.deploy = series(release, deploy);
-exports.sassdoc = series(sass.docs);
+exports.serve = series(build(), watch.all);
+exports.deploy = series(release(), deploy);
+exports.sassdoc = series(css.docs);

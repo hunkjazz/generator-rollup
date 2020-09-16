@@ -9,7 +9,7 @@ const del = require("del");
 
 const paths = require("../utilities/paths");
 
-const sass = require("./sass");
+const css = require("./css");
 const javascript = require("./javascript");
 const images = require("./images");
 const optimize = require("./optimizer");
@@ -32,7 +32,7 @@ function build() {
 
   const build = parallel(
     series(javascript.compile, javascript.bundle),
-    sass.compile, 
+    css.compile, 
     images.resize,
     copy()
   );

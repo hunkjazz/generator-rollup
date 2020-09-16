@@ -8,7 +8,7 @@ let htmlmin,
     imagemin,
     imageminPlugins,
     postcssPlugins,
-    browserSync,
+    browsersync,
     sassdoc;
 
 htmlmin = {
@@ -60,7 +60,7 @@ postcssPlugins = [
   autoprefixer()
 ],
 
-browserSync = {
+browsersync = {
   init: {
     server: {
       baseDir: "./build",
@@ -82,6 +82,6 @@ module.exports = {
   imagemin,
   imageminPlugins,
   postcssPlugins,
-  browserSync,
+  browsersync,
   sassdoc
 }
