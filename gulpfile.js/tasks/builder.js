@@ -9,10 +9,10 @@ const del = require("del");
 
 const paths = require("../utilities/paths");
 
-const { runOptmizer } = require("./optmizer");
 const sass = require("./sass");
 const javascript = require("./javascript");
 const images = require("./images");
+const optimize = require("./optimizer");
 
 function _clean(target = "build") {
 
@@ -25,7 +25,7 @@ function _clean(target = "build") {
 
 function release() {
 
-  return series(build(), _clean("dist"), runOptmizer);
+  return series(build(), _clean("dist"), optimize());
 }
 
 function build() {
@@ -52,5 +52,6 @@ function copy(label = "static", glob = paths.static) {
 module.exports = {
   release,
   build,
-  copy
+  copy,
+  optimize
 };

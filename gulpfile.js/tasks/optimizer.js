@@ -1,6 +1,8 @@
-const { src, dest } = require("gulp");
-
-const options = require("../utilities/options");
+const {
+  src,
+  dest,
+  parallel
+} = require("gulp");
 
 const postcss = require("gulp-postcss");
 const purgecss = require("gulp-purgecss");
@@ -9,9 +11,12 @@ const uglify = require("gulp-uglify");
 const useref = require("gulp-useref");
 const gulpIf = require("gulp-if");
 
-function optimizeCode() {
+const images = require("./images");
+const options = require("../utilities/options");
 
-  const glob = "build/*.html";
+function code() {
+  
+  let glob = "build/*.html";
 
   return src(glob)
           .pipe( useref() )
@@ -22,6 +27,9 @@ function optimizeCode() {
           .pipe( dest("dist") );
 }
 
-module.exports = {
-  optimizeCode
-};
+function optimize() {
+
+  return parallel(images.optimize, code)
+}
+
+module.exports = optimize;
