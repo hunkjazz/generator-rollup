@@ -1,7 +1,7 @@
-const { parallel } = require('gulp');
+const { parallel } = require("gulp");
 
-const { optimizeCode } = require('./codeOptimizer');
-const { optimizeImg } = require('./imgOptmizer');
+const { optimizeCode } = require("./codeOptimizer");
+const { optimizeImg } = require("./imgOptmizer");
 
 const runOptmizer = parallel(optimizeImg, optimizeCode);
 

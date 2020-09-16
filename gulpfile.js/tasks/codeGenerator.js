@@ -1,11 +1,11 @@
 const {
   series,
   parallel
-} = require('gulp');
+} = require("gulp");
 
-const { bundleJS } = require('./jsBundler');
-const { compileSass } = require('./sassCompiler');
-const { compileTS } = require('./tsCompiler');
+const { bundleJS } = require("./jsBundler");
+const { compileSass } = require("./sassCompiler");
+const { compileTS } = require("./tsCompiler");
 
 const generateCode = parallel(compileSass, series(compileTS, bundleJS));
 

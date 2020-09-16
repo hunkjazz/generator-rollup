@@ -1,6 +1,6 @@
 const static = [
-  'src/index.html',
-  'src/favicon.png'
+  "src/index.html",
+  "src/favicon.png"
 ];
 
 module.exports = {

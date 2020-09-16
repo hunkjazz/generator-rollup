@@ -1,13 +1,13 @@
-const del = require('del');
+const del = require("del");
 
 function cleanBuild() {
 
-  return del(['./build'])
+  return del(["./build"])
 }
 
 function cleanDist() {
   
-  return del(['./dist'])
+  return del(["./dist"])
 }
 
 module.exports = {

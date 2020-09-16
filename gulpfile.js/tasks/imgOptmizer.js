@@ -1,14 +1,14 @@
-const { src, dest } = require('gulp');
-const options = require('../utilities/options');
+const { src, dest } = require("gulp");
+const options = require("../utilities/options");
 
-const cache = require('gulp-cache');
+const cache = require("gulp-cache");
 
-const imagemin = require('gulp-imagemin');
-const pngquant = require('imagemin-pngquant');
+const imagemin = require("gulp-imagemin");
+const pngquant = require("imagemin-pngquant");
 
 function optimizeImg() {
   
-  const glob = 'build/**/*.{jpg,png,gif}';
+  const glob = "build/**/*.{jpg,png,gif}";
 
   const imageminPlugins = [
     imagemin.gifsicle(options.imageminPlugins.gifsicle),
@@ -20,7 +20,7 @@ function optimizeImg() {
 
   return src(glob)
           .pipe(cache(imagemin(imageminPlugins, options.imagemin)))
-          .pipe(dest('dist/'));
+          .pipe(dest("dist/"));
 }
 
 module.exports = {

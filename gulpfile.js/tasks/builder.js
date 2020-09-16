@@ -3,19 +3,19 @@ const {
   dest,
   series,
   parallel
-} = require('gulp');
+} = require("gulp");
 
-const paths = require('../utilities/paths');
+const paths = require("../utilities/paths");
 
-const { generateCode } = require('./codeGenerator');
-const { cleanBuild } = require('./folderCleaner');
-const { resizeImages } = require('./imageResizer');
+const { generateCode } = require("./codeGenerator");
+const { cleanBuild } = require("./folderCleaner");
+const { resizeImages } = require("./imageResizer");
 
 function copyStaticFiles() {
 
   const glob = paths.static;
 
-  return src(glob).pipe( dest('build/') );
+  return src(glob).pipe( dest("build/") );
 }
 
 const buildFiles = series(

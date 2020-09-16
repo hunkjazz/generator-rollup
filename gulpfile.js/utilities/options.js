@@ -1,7 +1,7 @@
-const pngquant = require('imagemin-pngquant');
+const pngquant = require("imagemin-pngquant");
 
-const autoprefixer = require('autoprefixer');
-const cssnano = require('cssnano');
+const autoprefixer = require("autoprefixer");
+const cssnano = require("cssnano");
 
 let htmlmin,
     purgecss,
@@ -26,10 +26,10 @@ htmlmin = {
 
 purgecss = {
   content: [
-    './build/**/*.html', 
-    './build/js/**/*.js'
+    "./build/**/*.html", 
+    "./build/js/**/*.js"
   ],
-  css: ['build/css/main.css']
+  css: ["build/css/main.css"]
 };
 
 imagemin = {
@@ -73,7 +73,7 @@ browserSync = {
 };
 
 sassdoc = {
-  dest: 'docs/sassdoc'
+  dest: "docs/sassdoc"
 }
 
 module.exports = {
