@@ -21,6 +21,10 @@ function typescript(serve = false) {
   if(serve) browsersync.init(options.browsersync.init);
 }
 
+/**
+ * Watch and serve Sass files.
+ * @param {boolean} [serve=false]
+ */
 function sass(serve = false) {
   
   const watcher = watch("src/scss/**/*.scss");
@@ -30,6 +34,10 @@ function sass(serve = false) {
   if(serve) browsersync.init(options.browsersync.init);
 }
 
+/**
+ * Watch and serve image files.
+ * @param {boolean} [serve=false]
+ */
 function image(serve = false) {
 
   const watcher = watch("src/assets/img/**/*");
@@ -39,6 +47,10 @@ function image(serve = false) {
   if(serve) browsersync.init(options.browsersync.init);
 }
 
+/**
+ * Watch and serve static files.
+ * @param {boolean} [serve=false]
+ */
 function static(serve = false) {
 
   const watcher = watch(paths.static);
@@ -48,6 +60,10 @@ function static(serve = false) {
   if(serve) browsersync.init(options.browsersync.init);
 }
 
+/**
+ * Watch and serve all files.
+ * @param {boolean} [serve=false]
+ */
 function all(serve = true) {
   
   typescript();
