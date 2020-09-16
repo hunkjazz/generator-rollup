@@ -11,7 +11,7 @@ const paths = require("../utilities/paths");
 
 const { runOptmizer } = require("./optmizer");
 const { generateCode } = require("./codeGenerator");
-const { resizeImages } = require("./imageResizer");
+const images = require("./images");
 
 function _clean(target = "build") {
 
@@ -32,7 +32,7 @@ function build() {
   const build = parallel(
     generateCode,
     copy(),
-    resizeImages
+    images.resize
   );
 
   return series(_clean(), build);
@@ -40,7 +40,7 @@ function build() {
 
 function copy(label = "static", glob = paths.static) {
 
-  function task() { return src(glob).pipe(dest("build/")) }
+  function task() { return src(glob).pipe(dest("build")) }
 
   task.displayName = `copy:${label}`;
   

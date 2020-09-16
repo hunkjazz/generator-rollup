@@ -1,12 +1,29 @@
 const { src, dest } = require("gulp");
-const options = require("../utilities/options");
 
 const cache = require("gulp-cache");
-
 const imagemin = require("gulp-imagemin");
+const responsive = require("gulp-responsive");
 const pngquant = require("imagemin-pngquant");
 
-function optimizeImg() {
+const options = require("../utilities/options");
+
+function resize() {
+
+  const glob = "src/assets/img/**/*.{png,jpg}";
+  
+  return src(glob)
+          .pipe(responsive({
+            // "file-infix-*.*": [
+            //   {
+            //     width: 123,
+            //     rename: { suffix: "-123w" }
+            //   }
+            // ]
+          }))
+          .pipe( dest("./build/assets/img") );
+}
+
+function optimize() {
   
   const glob = "build/**/*.{jpg,png,gif}";
 
@@ -24,5 +41,6 @@ function optimizeImg() {
 }
 
 module.exports = {
-  optimizeImg
-};
+  resize,
+  optimize
+}

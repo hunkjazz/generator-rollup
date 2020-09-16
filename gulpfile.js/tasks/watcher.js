@@ -4,7 +4,7 @@ const options = require("../utilities/options");
 const browserSync = require("browser-sync").create();
 
 const paths = require("../utilities/paths");
-const { resizeImages } = require("./imageResizer");
+const images = require("./images");
 const { compileSass } = require("./sassCompiler");
 const { copy } = require("./builder");
 const { compileTS } = require("./tsCompiler");
@@ -21,7 +21,7 @@ function watchTasks() {
 
   watchSass.on("all", compileSass);
   watchTS.on("all", series(compileTS, bundleJS, browserSync.reload));
-  watchImages.on("all", series(resizeImages, browserSync.reload));
+  watchImages.on("all", series(images.resize, browserSync.reload));
   watchStatic.on("all", series(copy(), browserSync.reload));
 }
 
