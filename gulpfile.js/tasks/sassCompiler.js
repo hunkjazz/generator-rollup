@@ -1,6 +1,6 @@
 const { src, dest } = require('gulp');
 
-const { browserSync } = require('../modules/browserSync');
+const browserSync = require('browser-sync').create();
 
 const { 
   sass,

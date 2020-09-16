@@ -1,4 +1,4 @@
-const { del } = require('../modules/modules.manifest');
+const del = require('del');
 
 function cleanBuild() {
 

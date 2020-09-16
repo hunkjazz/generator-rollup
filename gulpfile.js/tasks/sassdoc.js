@@ -1,7 +1,7 @@
 const { src } = require('gulp');
 const options = require('../utilities/options');
 
-const { sassdoc } = require('../modules/modules.manifest');
+const sassdoc = require('sassdoc');
 
 function buildSassDoc() {
 

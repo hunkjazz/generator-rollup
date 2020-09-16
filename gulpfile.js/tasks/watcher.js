@@ -1,7 +1,7 @@
 const { series, watch } = require('gulp');
 const options = require('../utilities/options');
 
-const { browserSync } = require('../modules/browserSync');
+const browserSync = require('browser-sync').create();
 
 const paths = require('../utilities/paths');
 const { resizeImages } = require('./imageResizer');

@@ -1,8 +1,8 @@
 
-const { rollup } = require('../modules/modules.manifest');
+const { rollup } = require('rollup');
 
 function bundleJS() {
-  return rollup.rollup({
+  return rollup({
                   input: './src/js/main.js',
                 })
                 .then(bundle => {
