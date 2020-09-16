@@ -2,11 +2,9 @@ const { src, dest } = require('gulp');
 
 const browserSync = require('browser-sync').create();
 
-const { 
-  sass,
-  sourcemaps
-} = require('../plugins/plugins.manifest');
+const sourcemaps = require('gulp-sourcemaps');
 
+const sass = require('gulp-sass');
 sass.compiler = require('node-sass');
 
 function compileSass() {

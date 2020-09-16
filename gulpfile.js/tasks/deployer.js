@@ -1,6 +1,6 @@
 const { src } = require('gulp');
 
-const { ghPages } = require('../plugins/plugins.manifest');
+const ghPages = require('gulp-gh-pages');
 
 function deployFiles() {
 

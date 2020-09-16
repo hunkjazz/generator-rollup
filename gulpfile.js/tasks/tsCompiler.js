@@ -1,9 +1,7 @@
 const { src, dest } = require('gulp');
 
-const {
-  ts,
-  sourcemaps
-} = require('../plugins/plugins.manifest');
+const sourcemaps = require('gulp-sourcemaps');
+const ts = require('gulp-typescript');
 
 const tsProject = ts.createProject('tsconfig.json');
 

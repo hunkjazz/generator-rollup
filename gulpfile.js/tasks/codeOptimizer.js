@@ -2,15 +2,12 @@ const { src, dest } = require('gulp');
 
 const options = require('../utilities/options');
 
-const { 
-  useref,
-  gulpIf,
-  uglify,
-  htmlmin,
-  purgecss
-} = require('../plugins/plugins.manifest');
-
-const { postcss } = require('../plugins/postcss');
+const postcss = require('gulp-postcss');
+const purgecss = require('gulp-purgecss');
+const htmlmin = require('gulp-htmlmin');
+const uglify = require('gulp-uglify');
+const useref = require('gulp-useref');
+const gulpIf = require('gulp-if');
 
 function optimizeCode() {
 

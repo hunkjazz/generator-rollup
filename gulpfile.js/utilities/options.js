@@ -1,5 +1,7 @@
-const { pngquant } = require('../plugins/imagemin');
-const { autoprefixer, cssnano } = require('../plugins/postcss');
+const pngquant = require('imagemin-pngquant');
+
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
 
 let htmlmin,
     purgecss,

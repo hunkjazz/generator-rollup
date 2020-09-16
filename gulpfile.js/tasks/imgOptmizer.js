@@ -1,8 +1,10 @@
 const { src, dest } = require('gulp');
 const options = require('../utilities/options');
 
-const { cache } = require('../plugins/plugins.manifest');
-const { imagemin, pngquant } = require('../plugins/imagemin');
+const cache = require('gulp-cache');
+
+const imagemin = require('gulp-imagemin');
+const pngquant = require('imagemin-pngquant');
 
 function optimizeImg() {
   
