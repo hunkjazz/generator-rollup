@@ -13,14 +13,7 @@ function resize() {
   const glob = "src/assets/img/**/*.{png,jpg}";
   
   return src(glob)
-          .pipe(responsive({
-            // "file-infix-*.*": [
-            //   {
-            //     width: 123,
-            //     rename: { suffix: "-123w" }
-            //   }
-            // ]
-          }))
+          .pipe(responsive())
           .pipe( dest(`${paths.env.dev}/assets/img`) );
 }
 
