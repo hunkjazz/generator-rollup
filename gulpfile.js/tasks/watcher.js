@@ -6,7 +6,7 @@ const browserSync = require("browser-sync").create();
 const paths = require("../utilities/paths");
 const { resizeImages } = require("./imageResizer");
 const { compileSass } = require("./sassCompiler");
-const { copyStaticFiles } = require("./builder");
+const { copy } = require("./builder");
 const { compileTS } = require("./tsCompiler");
 const { bundleJS } = require("./jsBundler");
 
@@ -22,7 +22,7 @@ function watchTasks() {
   watchSass.on("all", compileSass);
   watchTS.on("all", series(compileTS, bundleJS, browserSync.reload));
   watchImages.on("all", series(resizeImages, browserSync.reload));
-  watchStatic.on("all", series(copyStaticFiles, browserSync.reload));
+  watchStatic.on("all", series(copy(), browserSync.reload));
 }
 
 module.exports = {

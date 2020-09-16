@@ -5,25 +5,50 @@ const {
   parallel
 } = require("gulp");
 
+const del = require("del");
+
 const paths = require("../utilities/paths");
 
+const { runOptmizer } = require("./optmizer");
 const { generateCode } = require("./codeGenerator");
-const { cleanBuild } = require("./folderCleaner");
 const { resizeImages } = require("./imageResizer");
 
-function copyStaticFiles() {
+function _clean(target = "build") {
 
-  const glob = paths.static;
+  function task() { return del([target]) }
 
-  return src(glob).pipe( dest("build/") );
+  task.displayName = `clean:${target}`;
+  
+  return task;
 }
 
-const buildFiles = series(
-                    cleanBuild, 
-                    parallel(copyStaticFiles, generateCode, resizeImages)
-                  );
+function release() {
+
+  return series(build(), _clean("dist"), runOptmizer);
+}
+
+function build() {
+
+  const build = parallel(
+    generateCode,
+    copy(),
+    resizeImages
+  );
+
+  return series(_clean(), build);
+}
+
+function copy(label = "static", glob = paths.static) {
+
+  function task() { return src(glob).pipe(dest("build/")) }
+
+  task.displayName = `copy:${label}`;
+  
+  return task;
+}
 
 module.exports = {
-  buildFiles,
-  copyStaticFiles
-}
+  release,
+  build,
+  copy
+};
