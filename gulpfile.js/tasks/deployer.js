@@ -2,7 +2,7 @@ const { src } = require("gulp");
 
 const ghPages = require("gulp-gh-pages");
 
-function deployFiles() {
+function deploy() {
 
   const glob = "./dist/**/*";
   
@@ -10,5 +10,5 @@ function deployFiles() {
 }
 
 module.exports = {
-  deployFiles
+  deploy
 };
