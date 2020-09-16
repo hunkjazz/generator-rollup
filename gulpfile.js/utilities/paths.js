@@ -1,7 +1,7 @@
 const path = {
   staticFiles: [
     'src/index.html',
-    'src/favicon.png',
+    'src/favicon.png'
   ]
 }
 

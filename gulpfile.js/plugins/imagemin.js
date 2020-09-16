@@ -3,5 +3,5 @@ const pngquant = require('imagemin-pngquant');
 
 module.exports = {
   imagemin, 
-  pngquant,
+  pngquant
 }

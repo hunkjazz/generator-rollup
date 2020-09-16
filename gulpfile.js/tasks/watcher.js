@@ -1,5 +1,5 @@
 const { series, watch } = require('../utilities/api');
-const { options } = require('../utilities/options');
+const options = require('../utilities/options');
 
 const { browserSync } = require('../modules/browserSync');
 

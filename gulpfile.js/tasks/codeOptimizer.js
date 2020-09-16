@@ -1,5 +1,5 @@
 const { src, dest } = require('../utilities/api');
-const { options } = require('../utilities/options');
+const options = require('../utilities/options');
 
 const { 
   useref,

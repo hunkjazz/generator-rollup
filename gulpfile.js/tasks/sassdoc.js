@@ -1,5 +1,5 @@
 const { src } = require('../utilities/api');
-const { options } = require('../utilities/options');
+const options = require('../utilities/options');
 
 const { sassdoc } = require('../modules/modules.manifest');
 
