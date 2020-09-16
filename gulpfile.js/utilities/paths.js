@@ -1,10 +1,10 @@
-const path = {
-  staticFiles: [
-    'src/index.html',
-    'src/favicon.png'
-  ]
-}
+const static;
+
+static = [
+  'src/index.html',
+  'src/favicon.png'
+];
 
 module.exports = {
-  path
+  static
 }

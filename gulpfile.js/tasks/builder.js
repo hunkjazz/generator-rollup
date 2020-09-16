@@ -5,7 +5,7 @@ const {
   parallel
 } = require('../utilities/api');
 
-const { path } = require('../utilities/paths');
+const paths = require('../utilities/paths');
 
 const { generateCode } = require('./codeGenerator');
 const { cleanBuild } = require('./folderCleaner');
@@ -13,7 +13,7 @@ const { resizeImages } = require('./imageResizer');
 
 function copyStaticFiles() {
 
-  const glob = path.staticFiles;
+  const glob = paths.static;
 
   return src(glob).pipe( dest('build/') );
 }
