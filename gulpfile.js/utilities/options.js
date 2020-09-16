@@ -7,7 +7,6 @@ const paths = require("./paths");
 let htmlmin,
     purgecss,
     imagemin,
-    imageminPlugins,
     postcssPlugins,
     browsersync,
     sassdoc;
@@ -34,26 +33,27 @@ purgecss = {
 };
 
 imagemin = {
-  verbose: true,
-  use: [pngquant()]
-};
-
-imageminPlugins = {
-  gifsicle: {
-    interlaced: true
+  options: {
+    verbose: true,
+    use: [pngquant()]
   },
-  jpegtran: {
-    progressive: true
-  },
-  optipng: {
-    optimizationLevel: 5
-  },
-  svgo: {
-    plugins: [
-      {removeViewBox: true},
-      {cleanupIDs: false}
-    ]
-  },
+  plugins : {
+    gifsicle: {
+      interlaced: true
+    },
+    jpegtran: {
+      progressive: true
+    },
+    optipng: {
+      optimizationLevel: 5
+    },
+    svgo: {
+      plugins: [
+        {removeViewBox: true},
+        {cleanupIDs: false}
+      ]
+    },
+  }
 };
 
 postcssPlugins = [
@@ -81,7 +81,6 @@ module.exports = {
   htmlmin,
   purgecss,
   imagemin,
-  imageminPlugins,
   postcssPlugins,
   browsersync,
   sassdoc

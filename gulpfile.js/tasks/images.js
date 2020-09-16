@@ -5,7 +5,7 @@ const imagemin = require("gulp-imagemin");
 const responsive = require("gulp-responsive");
 const pngquant = require("imagemin-pngquant");
 
-const options = require("../utilities/options");
+const configs = require("../utilities/options");
 const paths = require("../utilities/paths");
 
 /**
@@ -29,16 +29,16 @@ function optimize() {
   
   const glob = `${paths.env.dev}/**/*.{jpg,png,gif}`;
 
-  const imageminPlugins = [
-    imagemin.gifsicle(options.imageminPlugins.gifsicle),
-    imagemin.jpegtran(options.imageminPlugins.jpegtran),
-    imagemin.optipng(options.imageminPlugins.optipng),
-    imagemin.svgo(options.imageminPlugins.svgo),
+  const plugins = [
+    imagemin.gifsicle(configs.imagemin.plugins.gifsicle),
+    imagemin.jpegtran(configs.imagemin.plugins.jpegtran),
+    imagemin.optipng(configs.imagemin.plugins.optipng),
+    imagemin.svgo(configs.imagemin.plugins.svgo),
     pngquant()
   ]
 
   return src(glob)
-          .pipe(cache(imagemin(imageminPlugins, options.imagemin)))
+          .pipe(cache(imagemin(plugins, configs.imagemin.options)))
           .pipe(dest(`${paths.env.prod}`));
 }
 
