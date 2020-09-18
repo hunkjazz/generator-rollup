@@ -18,6 +18,7 @@
     "bootstrap": "^4.2.1"
   },
   "devDependencies": {
+    "@rollup/plugin-typescript": "^6.0.0",
     "autoprefixer": "^9.4.3",
     "browser-sync": "^2.26.3",
     "cssnano": "^4.1.8",
@@ -42,6 +43,7 @@
     "purgecss": "^2.3.0",
     "rollup": "^2.27.0",
     "sassdoc": "^2.7.3",
+    "tslib": "^2.0.1",
     "typescript": "^4.0.2",
     "uglify-js": "^3.4.9"
   }

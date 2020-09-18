@@ -8,7 +8,7 @@ const { rollup } = require("rollup");
 const paths = require("../utilities/paths");
 
 /**
- * Compiles JS.
+ * Compiles JS without Bundling.
  * @returns NodeJS.ReadWriteStream
  */
 function compile() {
@@ -22,23 +22,32 @@ function compile() {
                     .pipe(project())
                     .pipe(sourcemaps.write("./"));
 
-  return compiled.pipe(dest("./src/js/"));
+  return compiled.pipe(dest(`${paths.env.dev}/js/`));
 }
 
 /**
- * Bundles JS, using rollup.
+ * Compile and bundle JS, using rollup.
  * @returns Promise<RollupOutput>
  */
 async function bundle() {
 
-  const build = await rollup({ input: "./src/js/main.js" });
+  const typescript = require("@rollup/plugin-typescript");
 
-  return build.write({
-          file: `${paths.env.dev}/js/all.js`,
-          format: "umd",
-          name: "all",
-          sourcemap: true
-        });
+  const options = {
+    input: {
+      input: `src/ts/main.ts`,
+      plugins: [typescript()],
+    },
+    output: {
+      format: "cjs",
+      sourcemap: true,
+      file: `${paths.env.dev}/js/bundle.js`
+    }
+  };
+
+  const bundle = await rollup(options.input);
+
+  return await bundle.write(options.output);
 }
 
 compile.displayName = "compile:javascript";

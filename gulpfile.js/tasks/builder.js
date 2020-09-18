@@ -44,7 +44,7 @@ function release() {
 function build() {
 
   const build = parallel(
-                  series(javascript.compile, javascript.bundle),
+                  javascript.bundle,
                   css.compile, 
                   images.resize,
                   copy()

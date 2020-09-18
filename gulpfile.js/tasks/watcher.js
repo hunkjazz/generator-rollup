@@ -12,6 +12,10 @@ const { copy } = require("./builder");
 
 const browsersync = BrowserSync.create();
 
+/**
+ * Watch and serve TypeScript files.
+ * @param {boolean} [serve=false]
+ */
 function typescript(serve = false) {
 
   const watcher = watch("src/ts/**/*.ts");

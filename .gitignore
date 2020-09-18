@@ -1,8 +1,5 @@
 node_modules
 
-# temp compiled js
-/src/js
-
 /build
 /dist
 /docs
